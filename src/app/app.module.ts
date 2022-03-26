@@ -13,19 +13,16 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatSelectModule } from '@angular/material/select';
 import { SearchBarComponent } from './components/search-bar/search-bar.component'
-import { Routes, RouterModule} from '@angular/router'
+import { Routes, RouterModule} from '@angular/router';
+import { HomeComponent } from './components/home/home.component'
+import { AppRoutingModule } from './app-routing.module';
 
-const appRoutes : Routes = [
-  // {
-  //   path:'',
-  //   component:SearchBarComponent
-  // }
-];
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +34,7 @@ const appRoutes : Routes = [
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [
   ],
