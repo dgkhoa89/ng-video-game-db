@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //import more
@@ -13,16 +14,15 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatSelectModule } from '@angular/material/select';
 import { SearchBarComponent } from './components/search-bar/search-bar.component'
-import { Routes, RouterModule} from '@angular/router';
-import { HomeComponent } from './components/home/home.component'
-import { AppRoutingModule } from './app-routing.module';
-
+import { HomeComponent } from './components/home/home.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
   ],
