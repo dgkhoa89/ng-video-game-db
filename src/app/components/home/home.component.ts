@@ -9,6 +9,9 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+  public sort : string = '' ;
+
+
   ngOnInit(): void {
   }
 
