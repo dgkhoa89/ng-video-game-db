@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { EMPTY, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { APIResponse, Game } from '../models';
 
@@ -22,4 +22,10 @@ export class HttpService {
     }    
     return this.http.get<APIResponse<Game>>(environment.BASE_URL+'/games',{params: params});
   }
+
+  getGameById(id: string):Observable<Game>{
+    
+    return this.http.get<Game>(environment.BASE_URL+'/games/'+id,{})
+  }
+
 }
