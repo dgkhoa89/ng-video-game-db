@@ -1,3 +1,33 @@
-<!-- <h1>{{game.name}}</h1> -->
-<h2>{{game.id}}</h2>
-<h1>{{game.background_image}}</h1>
+<div class="details">
+    <div class="game-banner">
+        <img 
+            src="../../../assets/game1.jpg" 
+            alt=""
+            class="game-banner-img">
+    </div>
+    <div class="game-content">
+        <div class="details-wrapper">
+            <div class="game-header">
+                <h1 class="game-header-title">Name</h1>
+                <h2 class="game-header-release-date">Released 1.1.1</h2>
+                <p class="game-header-genres"><span>RPG</span></p>
+                <div class="game-gauge">
+                    <mwl-gauge 
+                        class="two" 
+                        [dialStartAngle]="180"
+                        [dialEndAngle]="0" 
+                        [max]="100"
+                        [value]="gameRating"
+                        [animated]=true
+                        [color]="getColor"
+                        [animationDuration]="2"
+                    >
+                    <a target="_blank" class="game-gauge-label">
+                        Metacritic
+                    </a>
+                    </mwl-gauge>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

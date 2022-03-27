@@ -16,12 +16,14 @@ export class DetailsComponent implements OnInit {
     private router: Router
   ) { }
   public game!: Game;
+  public gameRating: number = 50;
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params:Params)=>{
       this.getGameById(params['game-id']);
     });
   }
+
   getGameById(id: string){
     this.httpService
     .getGameById(id)
@@ -29,6 +31,20 @@ export class DetailsComponent implements OnInit {
       this.game = game;
       console.log(game);
     });
+  }
+
+  getColor(value: number):string{
+    let color= '';
+    if(value>75){
+      color = '#5ee432';
+    }else if (value > 50){
+      color = '#fffa50'
+    }else if (value > 30){
+      color= '#f7aa38';
+    }else{
+      color= '#ef4655';
+    }
+    return color;
   }
 
 }
