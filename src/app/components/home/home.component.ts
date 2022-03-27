@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   
   public sort : string = '' ;
 
-
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params : Params)=>{
       if(params['game-search']){
@@ -28,14 +27,12 @@ export class HomeComponent implements OnInit {
       }
     });
   }
-  searchGames(sort: string, search?: string):void {
-    
+  searchGames(sort: string, search?: string):void {    
     this.httpService
     .getGameList(sort,search)
     .subscribe((gameList : APIResponse<Game>)=>{
       this.games= gameList.results;
       console.log(gameList);
-      
     });
     
   }

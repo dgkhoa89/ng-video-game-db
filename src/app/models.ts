@@ -27,6 +27,7 @@ interface Genre{
 interface Platform{
     platform:{
         name:string;
+        slug: string;
     }
 }
 
