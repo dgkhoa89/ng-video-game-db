@@ -12,6 +12,10 @@ const appRoutes : Routes = [
         path:'search/:game-search',
         component: HomeComponent
     },
+    {
+        path:'details/:game-id',
+        component: HomeComponent
+    },
     { path: '**', component: PageNotFoundComponent },
 ]
 
