@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Game } from 'src/app/models';
 import { HttpService } from 'src/app/services/http.service';
 
@@ -11,25 +12,50 @@ import { HttpService } from 'src/app/services/http.service';
 export class DetailsComponent implements OnInit {
 
   constructor(
+    //to call api
     private httpService: HttpService,
+    //provide api of route
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    router: Router
   ) { }
-  public game!: Game;
+  public game: Game={
+    id: '',
+    background_image: '',
+    name: '',
+    release: '',
+    metacritic_url: '',
+    website: '',
+    description: '',
+    metacritic: 0,
+    genres: [],
+    parent_platforms: [],
+    publishers: [],
+    ratings: [],
+    screenshots: [],
+    trailers: []
+  };
   public gameRating: number = 50;
+  public gameId!: string;
+   routeSub! : Subscription;
+   gameSub! : Subscription;
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params:Params)=>{
-      this.getGameById(params['game-id']);
+    this.routeSub=this.activatedRoute.params.subscribe((params:Params)=>{
+      this.gameId = params['game-id']
+      this.getGameById(this.gameId);
     });
   }
 
   getGameById(id: string){
-    this.httpService
+    this.gameSub = this.httpService
     .getGameById(id)
-    .subscribe((game:Game)=>{
-      this.game = game;
-      console.log(game);
+    .subscribe((gameResp:Game)=>{
+      
+      this.game = gameResp;
+      console.log(gameResp);
+      setTimeout(() => {
+        this.gameRating = this.game.metacritic;
+      }, 500);
     });
   }
 
