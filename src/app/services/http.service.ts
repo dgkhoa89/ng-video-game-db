@@ -42,6 +42,8 @@ export class HttpService {
     //       }
     //   })
     // );
+    console.log(gameInfoRequest);
+    
     return gameInfoRequest
   }
 
